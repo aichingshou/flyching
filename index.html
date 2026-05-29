@@ -4,7 +4,418 @@
   <meta charset="UTF-8">
   <title>ROV 海洋探索與淨海任務</title>
 
-  <meta property="og:title" content="ROV 海洋探索與淨海任務">
+  <meta property="og:title" content="ROV 海洋探索與淨海任務<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>基隆海洋保衛戰</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Microsoft JhengHei", Arial, sans-serif;
+      background: #eef6fb;
+      color: #16324f;
+    }
+
+    /* 上方導覽列 */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #003047;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    nav button {
+      background: transparent;
+      color: white;
+      border: 2px solid transparent;
+      padding: 12px 22px;
+      margin-left: 10px;
+      font-size: 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background: #0aa6a6;
+      border-color: white;
+      transform: translateY(-2px);
+    }
+
+    /* 分頁區塊 */
+    .page {
+      display: none;
+      padding: 60px 8%;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 46px;
+      color: #005f73;
+      margin-bottom: 10px;
+    }
+
+    .underline {
+      width: 260px;
+      height: 7px;
+      background: #ffd43b;
+      margin-bottom: 40px;
+    }
+
+    .intro {
+      font-size: 24px;
+      line-height: 2;
+      max-width: 1200px;
+      margin-bottom: 45px;
+    }
+
+    /* 卡片 */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 32px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 22px;
+      padding: 35px;
+      min-height: 210px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.18);
+    }
+
+    .icon {
+      font-size: 58px;
+      animation: float 2.5s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .card h2 {
+      color: #d62828;
+      font-size: 28px;
+      margin: 0 0 12px 0;
+    }
+
+    .card p {
+      font-size: 20px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* 任務區 */
+    .mission-box {
+      background: #d9f5f6;
+      border-left: 12px solid #00a6a6;
+      padding: 35px;
+      border-radius: 18px;
+      font-size: 22px;
+      line-height: 2;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+
+    .big-button {
+      margin-top: 30px;
+      font-size: 22px;
+      background: #008c8c;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 16px 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .big-button:hover {
+      background: #006d77;
+      transform: scale(1.05);
+    }
+
+    .quiz {
+      margin-top: 25px;
+      background: white;
+      border-radius: 18px;
+      padding: 30px;
+      font-size: 22px;
+      line-height: 2;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #003047;
+      color: white;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 15px;
+      }
+
+      nav button {
+        font-size: 16px;
+        margin: 5px 3px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .intro {
+        font-size: 19px;
+      }
+
+      .card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🌊 基隆海洋保衛戰</div>
+  <nav>
+    <button class="active" onclick="showPage('knowledge', this)">📖 知識補給站</button>
+    <button onclick="showPage('rov', this)">⚖️ 浮力實驗室</button>
+    <button onclick="showPage('mission', this)">🕹️ 環保任務</button>
+    <button onclick="showPage('quiz', this)">📝 學習評量</button>
+  </nav>
+</header>
+
+<section id="knowledge" class="page active">
+  <h1>認識海洋垃圾</h1>
+  <div class="underline"></div>
+
+  <p class="intro">
+    在基隆的潮境海灣與周邊海域，我們擁有豐富的海洋生態。
+    然而，人類活動產生了大量的廢棄物，當這些垃圾流入海中，
+    就成了「海洋垃圾」。它們不僅破壞景觀，也可能被海洋生物誤食，
+    甚至纏繞導致死亡。
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🥤</div>
+      <div>
+        <h2>塑膠製品</h2>
+        <p>
+          寶特瓶、塑膠袋、吸管等垃圾不容易分解，
+          可能變成微塑膠，進入食物鏈。
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon">🕸️</div>
+      <div>
+        <h2>廢棄漁網</h2>
+        <p>
+          斷裂或被丟棄的漁網會在海中漂流，
+          纏繞海龜、魚類與珊瑚，是海底的隱形殺手。
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧴</div>
+      <div>
+        <h2>生活垃圾</h2>
+        <p>
+          瓶蓋、外帶餐盒、包裝袋等日常用品，
+          若沒有妥善處理，也可能隨雨水流入海洋。
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon">🐢</div>
+      <div>
+        <h2>生物危害</h2>
+        <p>
+          海洋生物可能把塑膠袋誤認成水母，
+          誤食後造成消化阻塞或死亡。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rov" class="page">
+  <h1>ROV 與浮力實驗室</h1>
+  <div class="underline"></div>
+
+  <p class="intro">
+    ROV 是水下無人載具，可以透過遙控方式進入水中，
+    協助人類觀察海底環境、拍攝影像，也可以設計成淨海任務工具。
+    想讓 ROV 在水中穩定移動，就必須理解「浮力」。
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🤖</div>
+      <div>
+        <h2>什麼是 ROV？</h2>
+        <p>
+          ROV 可以代替人類進入較深或較危險的水域，
+          執行觀察、採樣、檢查與救援任務。
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon">⚖️</div>
+      <div>
+        <h2>浮力原理</h2>
+        <p>
+          物體在水中會受到向上的浮力。
+          若浮力與重量平衡，就能在水中穩定懸浮。
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon">🔧</div>
+      <div>
+        <h2>設計挑戰</h2>
+        <p>
+          學生可以思考如何調整重量、浮球與推進器，
+          讓 ROV 能夠前進、下潛與轉向。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mission" class="page">
+  <h1>ROV 淨海任務</h1>
+  <div class="underline"></div>
+
+  <div class="mission-box">
+    <strong>任務背景：</strong><br>
+    假設你是基隆海洋保衛隊的一員，今天要設計一台 ROV，
+    到海底觀察並協助清除海洋垃圾。你需要判斷垃圾種類、
+    可能來源，以及它對海洋生物造成的影響。
+  </div>
+
+  <div class="cards" style="margin-top:35px;">
+    <div class="card">
+      <div class="icon">🔍</div>
+      <div>
+        <h2>第一步：觀察</h2>
+        <p>使用 ROV 攝影機觀察海底，記錄看到的垃圾種類與位置。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧠</div>
+      <div>
+        <h2>第二步：判斷</h2>
+        <p>思考這些垃圾從哪裡來，並分析它們對生態可能造成的影響。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon">🛠️</div>
+      <div>
+        <h2>第三步：行動</h2>
+        <p>設計 ROV 的夾取工具或收集裝置，完成淨海任務。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quiz" class="page">
+  <h1>學習評量</h1>
+  <div class="underline"></div>
+
+  <div class="quiz">
+    <p><strong>問題一：</strong>海洋垃圾可能會對海洋生物造成哪些影響？</p>
+    <p><strong>問題二：</strong>ROV 可以幫助人類完成哪些海洋任務？</p>
+    <p><strong>問題三：</strong>如果你要設計一台淨海 ROV，你會加入什麼功能？為什麼？</p>
+  </div>
+
+  <button class="big-button" onclick="alert('太棒了！請把你的想法寫在學習單上，完成海洋保衛任務！')">
+    完成任務
+  </button>
+</section>
+
+<footer>
+  © 2026 基隆海洋保衛戰｜ROV 海洋探索與淨海任務
+</footer>
+
+<script>
+  function showPage(pageId, btn) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
+
+    document.getElementById(pageId).classList.add('active');
+
+    const buttons = document.querySelectorAll('nav button');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>">
   <meta property="og:description" content="認識海洋垃圾、ROV水下無人載具，以及淨海任務的學習網站。">
 
   <style>
